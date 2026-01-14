@@ -96,9 +96,7 @@ aadhaar-analysis/
 │   ├── features.py                   # Feature engineering
 │   ├── visualizations.py             # Plotting functions
 │   └── ml_models.py                  # Machine learning models
-├── Clean_analiz.ipynb                # Analysis notebook
-├── Clean_analiz_draft2.ipynb         # Draft version
-└── Clean_analiz_3_pre_final.ipynb    # Pre-final version
+└── analysis.ipynb                # Analysis notebook
 ```
 
 ## Usage
