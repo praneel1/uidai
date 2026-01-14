@@ -19,6 +19,9 @@ Count of biometric (fingerprint/iris) updates by age group.
 ### 3. Enrolments (enroll_combined.csv)
 Count of new Aadhaar enrolments by age group.
 
+### 4. Geographic Boundaries (INDIA_STATES.geojson)
+GeoJSON file containing state boundary polygons for map visualizations.
+
 ### Data Dictionary
 
 | Column | Type | Description |
@@ -28,9 +31,9 @@ Count of new Aadhaar enrolments by age group.
 | district | string | District name |
 | pincode | integer | 6-digit postal code |
 | demo_age_5_17 | integer | Demographic updates for ages 5-17 |
-| demo_age_17_ | integer | Demographic updates for ages 18+ |
+| demo_age_17_ | integer | Demographic updates for ages 17+ |
 | bio_age_5_17 | integer | Biometric updates for ages 5-17 |
-| bio_age_17_ | integer | Biometric updates for ages 18+ |
+| bio_age_17_ | integer | Biometric updates for ages 17+ |
 | age_0_5 | integer | New enrolments for ages 0-5 |
 | age_5_17 | integer | New enrolments for ages 5-17 |
 | age_18_greater | integer | New enrolments for ages 18+ |
@@ -50,7 +53,7 @@ Count of new Aadhaar enrolments by age group.
    pip install -r requirements.txt
    ```
 
-3. Set up data path (optional - defaults to Google Colab path):
+3. Set up data path (optional - defaults to `/content/drive/MyDrive/uidai` for Google Colab):
    
    ```bash
    # Linux/Mac

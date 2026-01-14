@@ -22,7 +22,7 @@ def load_aadhaar_data() -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     ------
     FileNotFoundError
         If any dataset file is missing
-    pd.errors.EmptyDataError
+    ValueError
         If any dataset file is empty
     RuntimeError
         For other loading errors

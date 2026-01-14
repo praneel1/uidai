@@ -18,6 +18,7 @@ from sklearn.metrics import (
     silhouette_score
 )
 from sklearn.preprocessing import StandardScaler
+from constants import ACTIVITY_NAMES
 
 
 def train_activity_predictor(
@@ -205,7 +206,7 @@ def train_activity_classifier(
     # Classification report
     print(f"\nClassification Report (Test Set):")
     print("-" * 50)
-    class_names = ['Enrolment', 'Biometric', 'Demographic']
+    class_names = [ACTIVITY_NAMES[i] for i in sorted(y.unique())]
     print(classification_report(y_test, y_pred_test, target_names=class_names))
     
     print("=" * 60)

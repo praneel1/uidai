@@ -127,7 +127,7 @@ def add_temporal_features(df: pd.DataFrame) -> pd.DataFrame:
     df["month"] = df["date"].dt.month
     df["is_weekend"] = df["day_of_week"].isin(WEEKEND_DAYS).astype(int)
     
-    print("✓ Added 5 temporal features")
+    print("✓ Added 4 temporal features")
     return df
 
 
