@@ -89,7 +89,6 @@ aadhaar-analysis/
 ├── constants.py                       # Constants and definitions
 ├── requirements.txt                   # Python dependencies
 ├── README.md                          # This file
-├── CODE_AUDIT_REPORT.md              # Code quality audit
 ├── utils/                            # Utility modules
 │   ├── __init__.py
 │   ├── data_loader.py                # Data loading functions
@@ -97,9 +96,7 @@ aadhaar-analysis/
 │   ├── features.py                   # Feature engineering
 │   ├── visualizations.py             # Plotting functions
 │   └── ml_models.py                  # Machine learning models
-├── Clean_analiz.ipynb                # Analysis notebook
-├── Clean_analiz_draft2.ipynb         # Draft version
-└── Clean_analiz_3_pre_final.ipynb    # Pre-final version
+└── analysis.ipynb                # Analysis notebook
 ```
 
 ## Usage
