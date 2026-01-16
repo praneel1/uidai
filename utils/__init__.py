@@ -14,7 +14,7 @@ from .features import (
     add_ratio_features,
     add_all_features
 )
-from .visualizations import plot_state_map, plot_bar
+from .visualizations import plot_state_map, plot_bar, plot_confusion_matrix
 from .ml_models import (
     train_activity_predictor,
     train_activity_classifier,
@@ -35,6 +35,7 @@ __all__ = [
     'add_all_features',
     'plot_state_map',
     'plot_bar',
+    'plot_confusion_matrix',
     'train_activity_predictor',
     'train_activity_classifier',
     'train_activity_clusters',

@@ -15,6 +15,7 @@ from sklearn.metrics import (
     r2_score, 
     accuracy_score,
     classification_report,
+    confusion_matrix,
     silhouette_score
 )
 from sklearn.preprocessing import StandardScaler
@@ -209,6 +210,20 @@ def train_activity_classifier(
     class_names = [ACTIVITY_NAMES[i] for i in sorted(y.unique())]
     print(classification_report(y_test, y_pred_test, target_names=class_names))
     
+    # Confusion matrix
+    cm = confusion_matrix(y_test, y_pred_test)
+    print(f"\nConfusion Matrix:")
+    print("-" * 50)
+    print(f"{'':>15} ", end="")
+    for name in class_names:
+        print(f"{name[:12]:>12} ", end="")
+    print()
+    for i, name in enumerate(class_names):
+        print(f"{name[:15]:>15} ", end="")
+        for j in range(len(class_names)):
+            print(f"{cm[i][j]:>12,} ", end="")
+        print()
+    
     print("=" * 60)
     
     return {
@@ -218,7 +233,8 @@ def train_activity_classifier(
             'accuracy_test': acc_test,
             'classification_report': classification_report(
                 y_test, y_pred_test, target_names=class_names, output_dict=True
-            )
+            ),
+            'confusion_matrix': cm
         },
         'X_test': X_test,
         'y_test': y_test,

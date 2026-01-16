@@ -4,9 +4,11 @@ Visualization utilities for Aadhaar analysis.
 This module provides reusable plotting functions.
 """
 import matplotlib.pyplot as plt
+import seaborn as sns
 import geopandas as gpd
 import pandas as pd
-from typing import Optional
+import numpy as np
+from typing import Optional, List
 from config import MAP_PATH
 from constants import DEFAULT_COLORMAP, DEFAULT_FIGURE_SIZE, MAP_FIGURE_SIZE
 
@@ -198,3 +200,54 @@ def clear_map_cache():
     global _map_cache
     _map_cache = None
     print("✓ Map cache cleared")
+
+
+def plot_confusion_matrix(
+    cm: np.ndarray,
+    class_names: List[str],
+    title: str = "Confusion Matrix",
+    figsize: tuple = (8, 6),
+    cmap: str = 'Blues'
+) -> None:
+    """
+    Plot confusion matrix as a heatmap.
+    
+    Parameters
+    ----------
+    cm : np.ndarray
+        Confusion matrix (2D array)
+    class_names : list of str
+        Names of the classes
+    title : str, optional
+        Plot title (default: "Confusion Matrix")
+    figsize : tuple, optional
+        Figure size (width, height)
+    cmap : str, optional
+        Colormap name (default: 'Blues')
+        
+    Examples
+    --------
+    >>> from utils.ml_models import train_activity_classifier
+    >>> results = train_activity_classifier(df)
+    >>> cm = results['metrics']['confusion_matrix']
+    >>> class_names = ['Enrolment', 'Biometric', 'Demographic']
+    >>> plot_confusion_matrix(cm, class_names)
+    """
+    plt.figure(figsize=figsize)
+    
+    # Create heatmap
+    sns.heatmap(
+        cm, 
+        annot=True,           # Show numbers
+        fmt='d',              # Integer format
+        cmap=cmap,
+        xticklabels=class_names,
+        yticklabels=class_names,
+        cbar_kws={'label': 'Count'}
+    )
+    
+    plt.ylabel('Actual', fontsize=12, fontweight='bold')
+    plt.xlabel('Predicted', fontsize=12, fontweight='bold')
+    plt.title(title, fontsize=14, fontweight='bold')
+    plt.tight_layout()
+    plt.show()
