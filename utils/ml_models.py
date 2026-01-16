@@ -207,11 +207,12 @@ def train_activity_classifier(
     # Classification report
     print(f"\nClassification Report (Test Set):")
     print("-" * 50)
-    class_names = [ACTIVITY_NAMES[i] for i in sorted(y.unique())]
-    print(classification_report(y_test, y_pred_test, target_names=class_names))
+    labels = sorted(y.unique())
+    class_names = [ACTIVITY_NAMES[i] for i in labels]
+    print(classification_report(y_test, y_pred_test, target_names=class_names, labels=labels))
     
     # Confusion matrix
-    cm = confusion_matrix(y_test, y_pred_test)
+    cm = confusion_matrix(y_test, y_pred_test, labels=labels)
     print(f"\nConfusion Matrix:")
     print("-" * 50)
     print(f"{'':>15} ", end="")
