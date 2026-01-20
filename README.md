@@ -147,14 +147,6 @@ print(f"Classification Accuracy: {results['classification']['metrics']['accuracy
 print(f"Clustering Silhouette: {results['clustering']['metrics']['silhouette']:.4f}")
 ```
 
-## Key Findings
-
-[Add your key findings here after analysis]
-
-1. **Finding 1:** [Description]
-2. **Finding 2:** [Description]
-3. **Finding 3:** [Description]
-
 ## Visualizations
 
 The analysis includes:
